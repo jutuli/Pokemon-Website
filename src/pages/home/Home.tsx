@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { mainContext } from '../../context/MainProvider';
 import './home.css';
+import PokemonCard from '../../components/PokemonCard/PokemonCard';
 
 interface Pokemon {
   name: string;
@@ -66,15 +67,7 @@ const Home = () => {
       <ul>
         {pokemonList.map((pokemon: Pokemon) => {
           const id = pokemon.url.split('/')[6]; // ID aus URL holen
-          return (
-            <li key={pokemon.name}>
-              <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                alt=""
-              />
-              <h2>{pokemon.name}</h2>
-            </li>
-          );
+          return <PokemonCard key={pokemon.name} id={id} pokemon={pokemon} />;
         })}
       </ul>
     </section>
