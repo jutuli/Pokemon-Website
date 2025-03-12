@@ -1,6 +1,11 @@
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	margin: 0 auto;
+	padding-bottom: 4rem;
+	background-color: var(--color_bg);
 }
 
 header .dark-light-mode {
