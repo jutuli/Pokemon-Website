@@ -1,0 +1,123 @@
+@font-face {
+	font-family: "Roboto";
+	src: url("/src/assets/Roboto.ttf");
+}
+
+:root {
+	--color_bug: #3bb900;
+	--color_dark: #1c1c1c;
+	--color_dragon: #00458a;
+	--color_electric: #ffe600;
+	--color_fairy: #ffc2f9;
+	--color_fighting: #e40000;
+	--color_fire: #f90;
+	--color_flying: #ccdadd;
+	--color_ghost: #5a1e64;
+	--color_grass: #57921c;
+	--color_ground: #965a00;
+	--color_ice: #6ad2ff;
+	--color_normal: #b3b3b3;
+	--color_plant: #70df00;
+	--color_poison: #ab00ae;
+	--color_psychic: #ff81f2;
+	--color_rock: #e1b237;
+	--color_steel: #2a4950;
+	--color_water: #00a0e4;
+	--color_stellar: #205a72;
+	--color_unknown: #6b897a;
+
+	--color_white: #ffffff;
+	--color_black: #001;
+	--color_blue: #2c72b8;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* * Klassen für Farben */
+.bug {
+	background-color: #3bb900;
+}
+
+.dark {
+	background-color: #1c1c1c;
+}
+
+.dragon {
+	background-color: #00458a;
+}
+
+.electric {
+	background-color: #ffe600;
+}
+
+.fairy {
+	background-color: #ffc2f9;
+}
+
+.fighting {
+	background-color: #e40000;
+}
+
+.fire {
+	background-color: #f90;
+}
+
+.flying {
+	background-color: #ccdadd;
+}
+
+.ghost {
+	background-color: #5a1e64;
+}
+
+.grass {
+	background-color: #57921c;
+}
+
+.ground {
+	background-color: #965a00;
+}
+
+.ice {
+	background-color: #6ad2ff;
+}
+
+.normal {
+	background-color: #b3b3b3;
+}
+
+.plant {
+	background-color: #70df00;
+}
+
+.poison {
+	background-color: #ab00ae;
+}
+
+.psychic {
+	background-color: #ff81f2;
+}
+
+.rock {
+	background-color: #e1b237;
+}
+
+.steel {
+	background-color: #2a4950;
+}
+
+.water {
+	background-color: #00a0e4;
+}
+
+.stellar {
+	background-color: #205a72;
+}
+
+.unknown {
+	background-color: #6b897a;
+}
