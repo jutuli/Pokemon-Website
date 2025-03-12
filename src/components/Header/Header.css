@@ -1,1 +1,60 @@
+header {
+	width: 100%;
+	margin: 0 auto;
+}
 
+header .dark-light-mode {
+	position: absolute;
+	top: 2rem;
+	left: 10vw;
+	cursor: pointer;
+}
+
+header .burger-menu {
+	position: absolute;
+	right: 10vw;
+	top: 2rem;
+	cursor: pointer;
+}
+
+header .logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2vw 20px;
+}
+
+header .header-input-section {
+	width: fit-content;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0 auto;
+	gap: 2vw;
+}
+
+header .header-input-section .btn-search {
+	padding: 10px 20px;
+	border-radius: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: var(--color_fire);
+	color: var(--color_white);
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+header .header-input-section .btn-search:hover {
+	color: var(--color_black);
+	box-shadow: 0 0 2px var(--color_black);
+}
+
+header .header-input-section .input-search {
+	border-radius: 20px;
+	background-color: var(--color_lightgrey);
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+}

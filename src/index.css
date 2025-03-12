@@ -29,12 +29,20 @@
 	--color_white: #ffffff;
 	--color_black: #001;
 	--color_blue: #2c72b8;
+	--color_bg: #ccdadd;
+	--color_lightgrey: #ebebeb;
+	--transition: 0.4s all ease-in-out;
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--color_bg);
+	font-family: "Roboto", sans-serif;
 }
 
 /* * Klassen für Farben */
