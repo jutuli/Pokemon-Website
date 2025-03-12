@@ -1,3 +1,5 @@
+import './pokemonCard.css';
+
 interface IPokemonCardProps {
   pokemon: {
     name: string;
@@ -9,7 +11,7 @@ interface IPokemonCardProps {
 const PokemonCard = ({ pokemon, id }: IPokemonCardProps) => {
   return (
     <>
-      <li key={pokemon.name}>
+      <li key={pokemon.name} className="pokemon-card">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
           alt=""
