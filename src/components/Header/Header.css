@@ -39,7 +39,7 @@ header .header-input-section .btn-search {
 	text-align: center;
 	text-transform: uppercase;
 	background-color: var(--color_fire);
-	color: var(--color_white);
+	color: var(--color_black);
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -47,7 +47,7 @@ header .header-input-section .btn-search {
 }
 
 header .header-input-section .btn-search:hover {
-	color: var(--color_black);
+	color: var(--color_white);
 	box-shadow: 0 0 2px var(--color_black);
 }
 
