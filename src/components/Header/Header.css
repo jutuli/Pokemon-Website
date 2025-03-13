@@ -3,22 +3,23 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	margin: 0 auto;
-	padding-bottom: 4rem;
-	background-color: var(--color_bg);
+	padding: 2rem 4rem;
+	background-color: var(--background-color);
+	transition: box-shadow 0.3s ease-in-out;
 }
 
-header .dark-light-mode {
-	position: absolute;
-	top: 2rem;
-	left: 10vw;
-	cursor: pointer;
+header.scrolled {
+	box-shadow: 0 0 14px var(--color_black);
 }
 
+header .dark-light-mode,
 header .burger-menu {
-	position: absolute;
-	right: 10vw;
-	top: 2rem;
+	width: 30px;
+	height: fit-content;
 	cursor: pointer;
 }
 
@@ -27,6 +28,14 @@ header .logo {
 	justify-content: center;
 	align-items: center;
 	padding: 2vw 20px;
+	opacity: 1;
+	transition: opacity var(--transition), display var(--transition);
+}
+
+header .hide-logo {
+	opacity: 0;
+	display: none;
+	pointer-events: none;
 }
 
 header .header-input-section {
@@ -57,9 +66,57 @@ header .header-input-section .btn-search:hover {
 }
 
 header .header-input-section .input-search {
+	width: 25rem;
+	max-width: 100%;
 	border-radius: 20px;
 	background-color: var(--color_lightgrey);
 	padding: 10px 20px;
 	border: none;
 	outline: none;
+}
+
+/* * Media-Queries */
+@media screen and (max-width: 768px) {
+	header {
+		padding: 4rem 10px;
+	}
+
+	header .dark-light-mode,
+	header .burger-menu {
+		position: absolute;
+		top: 2rem;
+	}
+
+	.logo-input-box {
+		position: absolute;
+		top: 1rem;
+	}
+
+	header .dark-light-mode {
+		left: 1rem;
+	}
+
+	header .burger-menu {
+		right: 1rem;
+	}
+
+	header .logo {
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	.logo-input-box {
+		width: 100%;
+	}
+
+	header .header-input-section {
+		width: 100%;
+		margin: 2rem auto;
+		padding: 0 1rem;
+		gap: 1rem;
+	}
+
+	header .header-input-section .input-search {
+		flex-grow: 1;
+	}
 }
