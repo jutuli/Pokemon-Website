@@ -21,19 +21,19 @@ const Home = () => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const context = useContext(mainContext);
   if (!context) return null;
-  const {
-    searchTerm,
-    selectedType,
-    setSelectedPokemon,
-    filteredPokemon,
-    setFilteredPokemon,
-  } = context;
+  const { searchTerm, selectedTypeId, setSelectedPokemon } = context;
 
-  // Alle Pokemon holen
+  // Pokemon holen (alle oder spezifisch durch SearchTerm oder Type gefiltert)
   useEffect(() => {
-    const fetchGeneralPokemonList = async () => {
+    const fetchPokemonList = async () => {
+      let url = 'https://pokeapi.co/api/v2/pokemon';
+      if (searchTerm) {
+        url = `https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`;
+      } else if (selectedTypeId) {
+        url = `https://pokeapi.co/api/v2/type/${selectedTypeId}`;
+      }
       try {
-        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon');
+        const resp = await axios.get(url);
         if (resp.data.results) {
           setPokemonList(resp.data.results);
         }
@@ -42,31 +42,27 @@ const Home = () => {
         return;
       }
     };
-    fetchGeneralPokemonList();
-  }, []);
-
-  // Spezifisches Pokemon holen je nach Suchbegriff
-  useEffect(() => {
-    const fetchSpecificPokemon = async () => {
-      try {
-        const resp = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`
-        );
-        if (resp.data) {
-          setFilteredPokemon([resp.data]);
-        }
-      } catch (error) {
-        console.error('Error while Fetching specific Pokemon:', error);
-      }
-    };
-    fetchSpecificPokemon();
-  }, [searchTerm]);
+    fetchPokemonList();
+  }, [searchTerm, selectedTypeId]);
 
   return (
     <section className="home">
+      {pokemonList.length === 0 && (
+        <div>
+          <h2>No Pokemon found 😢</h2>
+          <p>
+            Try searching for a different Pokemon name or select a different
+            type.
+          </p>
+        </div>
+      )}
       <ul>
         {pokemonList.map((pokemon: Pokemon) => {
-          const id = pokemon.url.split('/')[6]; // ID aus URL holen
+          const id = pokemon.url.split('/').filter(Boolean).pop(); // ID aus URL holen
+          if (!id) {
+            console.error('Error while getting ID from URL');
+            return null;
+          }
           return <PokemonCard key={pokemon.name} id={id} pokemon={pokemon} />;
         })}
       </ul>
