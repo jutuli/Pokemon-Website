@@ -40,6 +40,7 @@
 	--color_blue: #2c72b8;
 	--color_bg: #ccdadd;
 	--color_lightgrey: #ebebeb;
+	--color_yellow: #ffcb05;
 	--transition: 0.4s all ease-in-out;
 }
 
@@ -73,6 +74,18 @@ img {
 
 main {
 	padding-top: 300px;
+}
+
+h2 {
+	color: var(--color_yellow);
+	/*-webkit-text-stroke: 3px var(--color_blue);*/
+	font-size: clamp(2rem, 4vw, 2.8rem);
+	font-weight: 900;
+	text-shadow: -4px -4px 0 var(--color_blue), 4px -4px 0 var(--color_blue),
+		-4px 4px 0 var(--color_blue), 4px 4px 0 var(--color_blue),
+		-4px 0px 0 var(--color_blue), 4px 0px 0 var(--color_blue),
+		0px -4px 0 var(--color_blue), 0px 4px 0 var(--color_blue);
+	letter-spacing: 8px;
 }
 
 /* * Klassen für Farben */

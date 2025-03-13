@@ -31,6 +31,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	position: relative;
 }
 
 .type-container .type-top-section .close-button {
@@ -40,13 +41,11 @@
 	margin-top: auto;
 }
 
-/*.type-container .type-logo {
-	width: 100px;
-	height: auto;
-	margin: 5vw auto;
-}*/
-
 /* * Überschrift "Select Your Pokemon-Type" */
+.type-container h2 {
+	position: relative;
+}
+
 .type-container h3 {
 	margin: 5vh auto 15vh auto;
 	font-size: clamp(1.6rem, 4vw, 1.8rem);
@@ -58,7 +57,7 @@
 
 .scroll-down {
 	position: absolute;
-	top: 30vh;
+	top: 18rem;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -104,7 +103,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 2rem;
-	margin: 5vh auto;
+	margin: 10vh auto;
 	padding: 2rem;
 }
 
@@ -122,6 +121,15 @@
 	font-weight: 700;
 	letter-spacing: 4px;
 	cursor: pointer;
+	transition: var(--transition);
+}
+
+/*.type-container .btn-pokemons:hover .btn-pokemon:not(:hover) {
+	opacity: 0.5;
+}*/
+
+.type-container .btn-pokemons .btn-pokemon:hover {
+	opacity: 0.5;
 }
 
 /* * Media-Queries */
