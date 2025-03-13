@@ -59,7 +59,7 @@ export default function Header() {
 				alt="Hamburger-Menu-Icon"
 				title="Hamburger-Menu-Icon"
 				aria-label="Hamburger-Menu-Icon"
-				onClick={toggleMenu} // Menü öffnen/schließen
+				onClick={toggleMenu}
 			/>
 
 			{/* Pokémon-Typen-Menü wird nur gerendert, wenn `menu === true` */}

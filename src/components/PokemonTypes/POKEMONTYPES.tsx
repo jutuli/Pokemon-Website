@@ -47,7 +47,10 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
 				/>
 			</div>
 
-			<h3>Select Your Pokemon-Type</h3>
+			<h2>
+				TYPE
+			</h2>
+			<p>Select Your Pokemon-Type</p>
 
 			<div className="scroll-down">
 				<span></span>
