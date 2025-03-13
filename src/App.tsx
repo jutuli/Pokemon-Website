@@ -8,6 +8,7 @@ import './App.css';
 import Layout from './layout/Layout';
 import Home from './pages/home/Home';
 import Detail from './pages/detail/Detail';
+import NotFound from './pages/notFound/NotFound';
 
 function App() {
   const router = createBrowserRouter(
@@ -15,6 +16,8 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path=":name" element={<Detail />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="not-found" element={<NotFound />} />
       </Route>
     )
   );

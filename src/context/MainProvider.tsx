@@ -5,10 +5,10 @@ interface IMainContextProps {
   setSelectedPokemon: (pokemon: any) => void;
   searchTerm: string;
   setSearchTerm: (searchTerm: string) => void;
-  selectedType: string | null;
-  setSelectedType: (type: string | null) => void;
-  filteredPokemon: any[];
-  setFilteredPokemon: (pokemon: any[]) => void;
+  selectedTypeId: number | null;
+  setSelectedTypeId: (type: number | null) => void;
+  error: string | null;
+  setError: (error: string | null) => void;
 }
 
 export const mainContext = createContext<IMainContextProps | null>(null);
@@ -18,10 +18,10 @@ export default function MainProvider({ children }: { children: ReactNode }) {
   const [selectedPokemon, setSelectedPokemon] = useState<any | null>(null);
   // Suchbegriff wird hier gespeichert um dann weiterverarbeitet zu werden
   const [searchTerm, setSearchTerm] = useState<string>('');
-  // Typenauswahl von Pokemon wird hier gespeichert (für die Filterung der Pokemon)
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-  // gefilterte Pokemon werden hier gespeichert
-  const [filteredPokemon, setFilteredPokemon] = useState<any[]>([]);
+  // Typenauswahl-Id von Pokemon wird hier gespeichert (für die Filterung der Pokemon)
+  const [selectedTypeId, setSelectedTypeId] = useState<number | null>(null);
+  // Error State falls Pokemon nicht gefunden wird
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <mainContext.Provider
@@ -30,10 +30,10 @@ export default function MainProvider({ children }: { children: ReactNode }) {
         setSelectedPokemon,
         searchTerm,
         setSearchTerm,
-        selectedType,
-        setSelectedType,
-        filteredPokemon,
-        setFilteredPokemon,
+        selectedTypeId,
+        setSelectedTypeId,
+        error,
+        setError,
       }}>
       {children}
     </mainContext.Provider>

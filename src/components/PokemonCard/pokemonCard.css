@@ -16,8 +16,8 @@
 
 .pokemon-card img {
   position: absolute;
-  width: auto;
-  height: 20vh;
+  width: 20vh;
+  height: auto;
   top: -70%;
 }
 
