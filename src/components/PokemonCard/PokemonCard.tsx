@@ -22,7 +22,10 @@ const PokemonCard = ({ pokemon, id }: IPokemonCardProps) => {
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
           alt=""
         />
-        <h2>{pokemon.name}</h2>
+        <p>
+          <span>{`#0${String(id).padStart(3, '0')}`}</span>
+          <span>{pokemon.name.toUpperCase()}</span>
+        </p>
       </li>
     </>
   );
