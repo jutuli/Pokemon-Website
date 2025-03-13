@@ -19,7 +19,7 @@ const PokemonCard = ({ pokemon, id }: IPokemonCardProps) => {
     <>
       <li key={pokemon.name} className="pokemon-card" onClick={handleClick}>
         <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
           alt=""
         />
         <h2>{pokemon.name}</h2>
