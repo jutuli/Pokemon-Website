@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { mainContext } from '../../context/MainProvider';
+import './detail.css';
 
 interface IPokemonDetails {
   name: string;
@@ -21,6 +22,8 @@ interface IPokemonDetails {
       };
     }
   ];
+  height: number;
+  weight: number;
 }
 
 const Detail = () => {
@@ -58,16 +61,37 @@ const Detail = () => {
   }, [error, navigate]);
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <img src={pokemonDetails?.sprites.other.home.front_default} alt={name} />
-      <h2>Types:</h2>
+    <section className="detail">
+      <div className="pokemon-view">
+        <img
+          src={pokemonDetails?.sprites.other.home.front_default}
+          alt={name}
+        />
+      </div>
+      <h2>
+        <span>{`#0${String(pokemonDetails?.id).padStart(3, '0')}`}</span>
+        <span>
+          {name && name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}
+        </span>
+      </h2>
       <ul>
         {pokemonDetails?.types.map((type) => (
-          <li key={type.slot}>{type.type.name}</li>
+          <li key={type.slot} className={`type-btn ${type.type.name}`}>
+            {type.type.name}
+          </li>
         ))}
       </ul>
-    </div>
+      <div className="height-and-weight">
+        <article>
+          <h2>Height</h2>
+          <p>{pokemonDetails?.height ? pokemonDetails.height * 10 : ''} cm</p>
+        </article>
+        <article>
+          <h2>Weight</h2>
+          <p>{pokemonDetails?.weight ? pokemonDetails.weight / 10 : ''} kg</p>
+        </article>
+      </div>
+    </section>
   );
 };
 

@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: end;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   z-index: 1;
   cursor: pointer;
 }
@@ -18,7 +18,7 @@
   position: absolute;
   width: 20vh;
   height: auto;
-  top: -70%;
+  bottom: 20%;
 }
 
 .pokemon-card p {
