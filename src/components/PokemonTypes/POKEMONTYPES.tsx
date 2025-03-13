@@ -69,7 +69,6 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
 						</button>
 					))}
 			</article>
-
 		</div>
 	);
 }
