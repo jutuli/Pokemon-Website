@@ -22,11 +22,18 @@ const Home = () => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const context = useContext(mainContext);
   if (!context) return null;
-  const { searchTerm, selectedTypeId, setSelectedPokemon } = context;
+  const {
+    searchTerm,
+    selectedTypeId,
+    setSelectedPokemon,
+    loading,
+    setLoading,
+  } = context;
 
   // Pokemon holen (alle oder spezifisch durch SearchTerm oder Type gefiltert)
   useEffect(() => {
     const fetchPokemonList = async () => {
+      setLoading(true);
       setPokemonList([]);
       let resp;
       let url = 'https://pokeapi.co/api/v2/pokemon';
@@ -63,14 +70,17 @@ const Home = () => {
         }
       } catch (error) {
         console.error('Error while Fetching all Pokemon:', error);
-        return;
+      } finally {
+        setLoading(false);
       }
     };
     fetchPokemonList();
   }, [searchTerm, selectedTypeId]);
   return (
     <section className="home">
-      {pokemonList.length === 0 && (
+      {loading && <p className="loading-p">Loading Pokémon... ⏳</p>}{' '}
+      {/* 🔥 Loading-Anzeige */}
+      {!loading && pokemonList.length === 0 && (
         <div>
           <h2>No Pokemon found 😢</h2>
           <p>

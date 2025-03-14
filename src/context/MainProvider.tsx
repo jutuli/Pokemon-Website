@@ -9,6 +9,8 @@ interface IMainContextProps {
   setSelectedTypeId: (type: number | null) => void;
   error: string | null;
   setError: (error: string | null) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
 export const mainContext = createContext<IMainContextProps | null>(null);
@@ -22,6 +24,8 @@ export default function MainProvider({ children }: { children: ReactNode }) {
   const [selectedTypeId, setSelectedTypeId] = useState<number | null>(null);
   // Error State falls Pokemon nicht gefunden wird
   const [error, setError] = useState<string | null>(null);
+  // Loading State für die Pokemon-Liste
+  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <mainContext.Provider
@@ -34,6 +38,8 @@ export default function MainProvider({ children }: { children: ReactNode }) {
         setSelectedTypeId,
         error,
         setError,
+        loading,
+        setLoading,
       }}>
       {children}
     </mainContext.Provider>
