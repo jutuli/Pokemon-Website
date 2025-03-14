@@ -1,6 +1,22 @@
+.home {
+	padding-top: 15vh;
+}
+
 ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5vw;
-  list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+	ul {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10vw;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	ul {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
