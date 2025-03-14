@@ -29,7 +29,7 @@ interface IPokemonDetails {
 const Detail = () => {
   const context = useContext(mainContext);
   const { name } = useParams(); // Pokemonname aus url
-  const navigate = useNavigate(); // Redirect falls Pokemon nicht gefunden wird
+  const navigate = useNavigate(); // Redirect falls Pokemon nicht gefunden wird oder zurück navigieren
   if (!context) return null;
   const { error, setError } = context;
 
@@ -62,6 +62,11 @@ const Detail = () => {
 
   return (
     <section className="detail">
+      <div className="back-btn-container">
+        <button className="back-btn" onClick={() => navigate('/')}>
+          <span>&#706;</span> back
+        </button>
+      </div>
       <div className="pokemon-view">
         <img
           src={pokemonDetails?.sprites.other.home.front_default}
