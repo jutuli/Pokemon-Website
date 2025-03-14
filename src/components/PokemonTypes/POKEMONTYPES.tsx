@@ -50,12 +50,6 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
       <h2>TYPE</h2>
       <p>Select Your Pokemon-Type</p>
 
-      <div className="scroll-down">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
       {/* Dynamische Buttons für Pokémon-Typen */}
       <article className="btn-pokemons">
         {pokemonTypes

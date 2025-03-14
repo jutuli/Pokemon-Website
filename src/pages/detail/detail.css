@@ -1,6 +1,7 @@
 .detail {
   text-align: center;
-  margin: 2rem 4rem;
+  height: calc(100dvh - 300px);
+  padding-top: 10vh;
 }
 
 .pokemon-view {
@@ -10,10 +11,11 @@
   padding-top: 10px;
   position: relative;
   height: 18vh;
-  width: full;
+  width: 50%;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
+  margin: 0 auto;
   z-index: 1;
   cursor: pointer;
 }
@@ -36,15 +38,20 @@
 }
 
 .detail > ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin: 2rem 1rem 3rem 1rem;
+  margin: 2rem auto 3rem auto;
 }
 
 .height-and-weight {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .height-and-weight h2 {
@@ -57,8 +64,8 @@
   font-weight: bold;
 }
 
-.type-btn {
-  width: 100%;
+.detail ul .type-btn {
+  width: 18rem;
   padding: 20px 40px;
   outline: none;
   border-radius: 20px;
@@ -70,4 +77,29 @@
   letter-spacing: 4px;
   cursor: pointer;
   transition: var(--transition);
+}
+
+@media screen and (max-width: 768px) {
+  .pokemon-view {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .pokemon-view,
+  .detail ul .type-btn {
+    width: 100%;
+  }
+
+  .detail h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .detail h2 span {
+    display: block;
+    width: 100%;
+  }
 }
