@@ -42,6 +42,7 @@
 /* * Überschrift "Select Your Pokemon-Type" */
 .type-container h2 {
   position: relative;
+  padding-top: 4rem;
 }
 
 .type-container h3 {

@@ -1,11 +1,17 @@
 import './pokemonTypes.css';
 import axios from 'axios';
 import { PokemonType } from '../../interfaces/type-data';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { mainContext } from '../../context/MainProvider';
+import { set } from 'react-hook-form';
 
 export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
   const [pokemonTypes, setPokemonTypes] = useState<PokemonType[]>([]);
   const [isClosing, setIsClosing] = useState(false); // Steuerung für Fade-Out Animation
+
+  const context = useContext(mainContext);
+  if (!context) return null;
+  const { setSelectedTypeId } = context;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,11 +61,21 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
         {pokemonTypes
           .slice() // Erst eine Kopie des Arrays erstellen, um das Original nicht zu verändern
           .sort((a, b) => a.name.localeCompare(b.name)) // Sortiert alphabetisch nach Name
-          .map((item) => (
-            <button key={item.name} className={`btn-pokemon ${item.name}`}>
-              {item.name.toUpperCase()}
-            </button>
-          ))}
+          .map((item) => {
+            const id =
+              Number(item.url.split('/').filter(Boolean).pop()) || null;
+            return (
+              <button
+                key={item.name}
+                className={`btn-pokemon ${item.name}`}
+                onClick={() => {
+                  setSelectedTypeId(id);
+                  handleClose();
+                }}>
+                {item.name.toUpperCase()}
+              </button>
+            );
+          })}
       </article>
     </div>
   );
