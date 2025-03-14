@@ -11,7 +11,7 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
 
   const context = useContext(mainContext);
   if (!context) return null;
-  const { setSelectedTypeId } = context;
+  const { setSelectedTypeId, setSearchTerm } = context;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +27,7 @@ export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
 
   // Funktion für sanftes Schließen mit CSS-Animation
   const handleClose = () => {
+    setSearchTerm(''); // Suchbegriff zurücksetzen
     setIsClosing(true);
     setTimeout(() => closeMenu(), 500); // Menü nach Animation wirklich schließen
   };

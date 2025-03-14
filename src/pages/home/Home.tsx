@@ -27,6 +27,7 @@ const Home = () => {
   // Pokemon holen (alle oder spezifisch durch SearchTerm oder Type gefiltert)
   useEffect(() => {
     const fetchPokemonList = async () => {
+      setPokemonList([]);
       let resp;
       let url = 'https://pokeapi.co/api/v2/pokemon';
       try {
@@ -35,7 +36,6 @@ const Home = () => {
           resp = await axios.get(url);
           if (resp.data) {
             setPokemonList([{ name: resp.data.name, url, id: resp.data.id }]);
-            console.log(resp.data);
           }
         } else if (selectedTypeId) {
           url = `https://pokeapi.co/api/v2/type/${selectedTypeId}`;
