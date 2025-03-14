@@ -1,7 +1,7 @@
 .detail {
   text-align: center;
   height: calc(100dvh - 300px);
-  padding-top: 10vh;
+  padding-top: 15vh;
 }
 
 .pokemon-view {

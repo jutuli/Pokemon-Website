@@ -3,7 +3,6 @@ import axios from 'axios';
 import { PokemonType } from '../../interfaces/type-data';
 import { useContext, useEffect, useState } from 'react';
 import { mainContext } from '../../context/MainProvider';
-import { set } from 'react-hook-form';
 
 export function PokemonTypes({ closeMenu }: { closeMenu: () => void }) {
   const [pokemonTypes, setPokemonTypes] = useState<PokemonType[]>([]);

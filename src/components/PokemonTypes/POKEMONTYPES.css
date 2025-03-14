@@ -39,6 +39,10 @@
   margin-top: auto;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 /* * Überschrift "Select Your Pokemon-Type" */
 .type-container h2 {
   position: relative;

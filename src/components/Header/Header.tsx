@@ -3,15 +3,19 @@ import './Header.css';
 import ThemeToogle from '../ThemeToogle/ThemeToogle';
 import { PokemonTypes } from '../PokemonTypes/PokemonTypes';
 import { mainContext } from '../../context/MainProvider';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
   //* State für das Logo und den Box-Shadow
   const [scrolled, setScrolled] = useState(false);
 
+  //* useNavigate für die Navigation auf die Home-Seite bei Klick auf das Logo
+  const navigate = useNavigate();
+
   //* Context für Pokemon-Suche
   const context = useContext(mainContext);
   if (!context) return null;
-  const { setSearchTerm, setSelectedTypeId } = context;
+  const { setSearchTerm } = context;
 
   //* useref für Search-Input-Feld
   const searchRef = useRef<HTMLInputElement>(null);
@@ -54,7 +58,9 @@ export default function Header() {
           <img
             src="/src/assets/pokemon-logo.png"
             alt="Pokemon-Logo"
-            title="Pokemon-Logo"
+            onClick={() => {
+              navigate('/');
+            }}
             aria-label="Pokemon-Logo"
           />
         </div>
