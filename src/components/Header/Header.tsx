@@ -47,6 +47,7 @@ export default function Header() {
     event.preventDefault();
     const inputString = searchRef.current?.value || '';
     setSearchTerm(inputString);
+    navigate('/');
   };
 
   return (
